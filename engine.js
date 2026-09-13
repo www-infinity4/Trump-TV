@@ -2,7 +2,7 @@
   "use strict";
   // Trump TV keeps its intentionally variable news/politics format, but every
   // viewer now resolves that format against one shared U.S. broadcast clock.
-  const TIME_ZONE="America/Chicago";
+  const TIME_ZONE = (Intl.DateTimeFormat().resolvedOptions().timeZone || "America/Chicago");
   const SLOT_SECONDS=1800;
   function parts(date){const p=new Intl.DateTimeFormat("en-US",{timeZone:TIME_ZONE,year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",second:"2-digit",hourCycle:"h23"}).formatToParts(date);return Object.fromEntries(p.filter(x=>x.type!=="literal").map(x=>[x.type,Number(x.value)]));}
   function zonedToUtc(year,month,day,hour=0,minute=0,second=0){const target=Date.UTC(year,month-1,day,hour,minute,second);let guess=target;for(let i=0;i<4;i++){const p=parts(new Date(guess));const represented=Date.UTC(p.year,p.month-1,p.day,p.hour,p.minute,p.second);guess+=target-represented;}return guess;}
@@ -11,10 +11,10 @@
   function rotate(items,seed){if(!items.length)return[];const offset=hash(seed)%items.length;return[...items.slice(offset),...items.slice(0,offset)];}
   function blockForHour(hour,blocks){return blocks.find(b=>hour>=b.startHour&&hour<b.endHour)||blocks[0];}
   function createDaySchedule(nowMs,catalog,blocks){
-    const p=parts(new Date(nowMs));const midnightMs=zonedToUtc(p.year,p.month,p.day);const key=dateKey(nowMs);const schedule=[];
+    const p=parts(new Date(nowMs));const midnightMs=zonedToUtc(p.year,p.month,p.day);const key=dateKey(nowMs);const epochDay=Math.floor(midnightMs/86400000);const schedule=[];
     for(const block of blocks){
       const pool=(catalog[block.pool]||[]).filter(item=>item.videoId||item.sourceUrl);if(!pool.length)continue;
-      const ordered=rotate(pool,`${key}:${block.id}`);const startSec=block.startHour*3600;const endSec=block.endHour*3600;
+      const base=rotate(pool,`infinity-program-cycle-v1:${block.id}`);const estimatedSlots=Math.max(1,(block.endHour-block.startHour)*2);const offset=((epochDay*estimatedSlots)%base.length+base.length)%base.length;const ordered=[...base.slice(offset),...base.slice(0,offset)];const startSec=block.startHour*3600;const endSec=block.endHour*3600;
       let cursorSec=startSec,slotIndex=0;
       while(cursorSec<endSec&&slotIndex<100){
         const program=ordered[slotIndex%ordered.length];
