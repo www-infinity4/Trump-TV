@@ -1,6 +1,8 @@
 (function(root){
   "use strict";
-  const TIME_ZONE=Intl.DateTimeFormat().resolvedOptions().timeZone||"UTC";
+  // Trump TV keeps its intentionally variable news/politics format, but every
+  // viewer now resolves that format against one shared U.S. broadcast clock.
+  const TIME_ZONE="America/Chicago";
   const SLOT_SECONDS=1800;
   function parts(date){const p=new Intl.DateTimeFormat("en-US",{timeZone:TIME_ZONE,year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",second:"2-digit",hourCycle:"h23"}).formatToParts(date);return Object.fromEntries(p.filter(x=>x.type!=="literal").map(x=>[x.type,Number(x.value)]));}
   function zonedToUtc(year,month,day,hour=0,minute=0,second=0){const target=Date.UTC(year,month-1,day,hour,minute,second);let guess=target;for(let i=0;i<4;i++){const p=parts(new Date(guess));const represented=Date.UTC(p.year,p.month-1,p.day,p.hour,p.minute,p.second);guess+=target-represented;}return guess;}
