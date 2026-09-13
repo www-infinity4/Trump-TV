@@ -34,81 +34,25 @@
     <details class="channel-menu">
       <summary aria-label="Open channel menu">☰ <span>Channels</span></summary>
       <nav>
-        <a href="https://www-infinity4.github.io/HBO/">HBO</a>
-        <a href="https://www-infinity4.github.io/Cinemax/">Cinemax</a>
-        <a href="https://www-infinity4.github.io/Starz/">Starz</a>
-        <a href="https://www-infinity4.github.io/Encore/">Encore</a>
-        <a href="https://www-infinity4.github.io/Cartoon-Network/">Cartoon Network</a>
-        <a aria-current="page" href="https://www-infinity4.github.io/Trump-TV/">Trump TV</a>
-        <a href="https://www-infinity4.github.io/TV-Database/">StarQuest</a>
-        <a href="https://www-infinity4.github.io/C13b0/">Infinity Phi</a>
+        <a href="https://www-infinity4.github.io/HBO/">HBO</a><a href="https://www-infinity4.github.io/Cinemax/">Cinemax</a><a href="https://www-infinity4.github.io/Starz/">Starz</a><a href="https://www-infinity4.github.io/Encore/">Encore</a><a href="https://www-infinity4.github.io/Cartoon-Network/">Cartoon Network</a><a aria-current="page" href="https://www-infinity4.github.io/Trump-TV/">Trump TV</a><a href="https://www-infinity4.github.io/TV-Database/">StarQuest</a><a href="https://www-infinity4.github.io/C13b0/">Infinity Phi</a>
       </nav>
     </details>
-    <div class="on-air"><span></span> ON AIR</div>
-    <time id="stationClock">--:-- local</time>
+    <div class="on-air"><span></span> ON AIR</div><time id="stationClock">--:-- local</time>
   </header>
-
   <main id="top">
     <section class="theater">
-      <div class="marquee">
-        <div><p id="modeLabel">LIVE CHANNEL</p><h1 id="nowTitle">Loading today’s program…</h1><p class="source-line" id="sourceLine"></p></div>
-        <div class="program-time" id="programTime">Please wait</div>
-      </div>
-      <div class="screen-shell">
-        <div id="player" class="player" aria-label="Trump TV Network video player"></div>
-        <div id="stationCard" class="station-card" hidden>
-          <p id="stationCardLabel">TRUMP TV NETWORK</p>
-          <strong id="stationCardTitle">Loading source…</strong>
-          <span id="stationCardCountdown"></span>
-          <a id="stationCardLink" class="source-button" href="#" target="_blank" rel="noopener" hidden>Open source</a>
-        </div>
-        <button id="enterButton" class="enter-button" type="button"><span>Enter Trump TV</span><small>Join the program at the moment airing now</small></button>
-      </div>
-      <div class="controls">
-        <button id="startOverButton" type="button">Start block over</button>
-        <button id="rewindButton" type="button">Rewind 30 sec</button>
-        <button id="liveButton" class="live-button" type="button"><span></span> Join live</button>
-        <button id="shareButton" class="share-button" type="button">Share</button>
-        <span id="shareStatus" role="status" aria-live="polite"></span>
-      </div>
+      <div class="marquee"><div><p id="modeLabel">LIVE CHANNEL</p><h1 id="nowTitle">Loading today’s program…</h1><p class="source-line" id="sourceLine"></p></div><div class="program-time" id="programTime">Please wait</div></div>
+      <div class="screen-shell"><div id="player" class="player" aria-label="Trump TV Network video player"></div><div id="stationCard" class="station-card" hidden><p id="stationCardLabel">TRUMP TV NETWORK</p><strong id="stationCardTitle">Loading source…</strong><span id="stationCardCountdown"></span><a id="stationCardLink" class="source-button" href="#" target="_blank" rel="noopener" hidden>Open source</a></div><button id="enterButton" class="enter-button" type="button"><span>Enter Trump TV</span><small>Join the program at the moment airing now</small></button></div>
+      <div class="controls"><button id="startOverButton" type="button">Start block over</button><button id="rewindButton" type="button">Rewind 30 sec</button><button id="liveButton" class="live-button" type="button"><span></span> Join live</button><button id="shareButton" class="share-button" type="button">Share</button><span id="shareStatus" role="status" aria-live="polite"></span></div>
       <div class="progress-wrap"><div class="progress-meta"><span id="positionLabel">Station clock</span><span id="remainingLabel">-- remaining</span></div><div class="progress-track"><div id="progressBar"></div></div></div>
     </section>
-
-    <section class="mission">
-      <p>PROGRAMMING PRINCIPLE</p>
-      <h2>A dated map, not a campaign feed.</h2>
-      <div class="mission-grid">
-        <article><strong>Event</strong><span>What Trump, the White House, Congress, courts or agencies did.</span></article>
-        <article><strong>Response</strong><span>Reporting and reaction are labeled by source rather than blended into official footage.</span></article>
-        <article><strong>Outcome</strong><span>Later clips can reconnect an earlier event to legal, economic, diplomatic or administrative consequences.</span></article>
-      </div>
-    </section>
-
+    <section class="mission"><p>PROGRAMMING PRINCIPLE</p><h2>A dated map, not a campaign feed.</h2><div class="mission-grid"><article><strong>Event</strong><span>What Trump, the White House, Congress, courts or agencies did.</span></article><article><strong>Response</strong><span>Reporting and reaction are labeled by source rather than blended into official footage.</span></article><article><strong>Outcome</strong><span>Later clips can reconnect an earlier event to legal, economic, diplomatic or administrative consequences.</span></article></div></section>
     <section class="next-up"><div class="section-heading"><p>ONE CHANNEL · DAILY ROTATION</p><h2>Next on Trump TV</h2></div><div id="nextCards" class="next-grid"></div></section>
-
-    <section class="guide">
-      <div class="section-heading guide-heading"><div><p>TODAY · RESETS AT 12:00 AM LOCAL TIME</p><h2>Daily network map</h2></div><span id="guideDate"></span></div>
-      <div id="guideRows" class="guide-rows"></div>
-    </section>
-
-    <section class="source-desk">
-      <div class="section-heading"><p>SOURCE DESK</p><h2>Keep official footage and reporting visibly separate</h2></div>
-      <div class="source-grid">
-        <a href="https://www.whitehouse.gov/videos/" target="_blank" rel="noopener"><strong>White House video library</strong><span>Primary-source administration footage</span></a>
-        <a href="https://www.foxnews.com/video/6404959408112/" target="_blank" rel="noopener"><strong>Fox News</strong><span>Current network reporting / interview clip</span></a>
-        <a href="https://keyt.com/politics/cnn-us-politics/2026/09/12/president-trump-arrives-in-dublin-to-meet-irelands-leaders-before-attending-golf-tournament/" target="_blank" rel="noopener"><strong>CNN Newsource</strong><span>Current reporting example</span></a>
-        <a href="https://www.reuters.com/world/europe/trump-says-he-would-love-see-united-ireland-2026-09-12/" target="_blank" rel="noopener"><strong>Reuters</strong><span>Wire reporting and outcome context</span></a>
-      </div>
-    </section>
+    <section class="guide"><div class="section-heading guide-heading"><div><p>TODAY · RESETS AT 12:00 AM LOCAL TIME</p><h2>Daily network map</h2></div><span id="guideDate"></span></div><div id="guideRows" class="guide-rows"></div></section>
+    <section class="source-desk"><div class="section-heading"><p>SOURCE DESK</p><h2>Keep official footage and reporting visibly separate</h2></div><div class="source-grid"><a href="https://www.whitehouse.gov/videos/" target="_blank" rel="noopener"><strong>White House video library</strong><span>Primary-source administration footage</span></a><a href="https://www.foxnews.com/video/6404959408112/" target="_blank" rel="noopener"><strong>Fox News</strong><span>Current network reporting / interview clip</span></a><a href="https://keyt.com/politics/cnn-us-politics/2026/09/12/president-trump-arrives-in-dublin-to-meet-irelands-leaders-before-attending-golf-tournament/" target="_blank" rel="noopener"><strong>CNN Newsource</strong><span>Current reporting example</span></a><a href="https://www.reuters.com/world/europe/trump-says-he-would-love-see-united-ireland-2026-09-12/" target="_blank" rel="noopener"><strong>Reuters</strong><span>Wire reporting and outcome context</span></a></div></section>
   </main>
-
   <section class="channel-directory"><p>Choose another channel</p><nav><a href="https://www-infinity4.github.io/HBO/">HBO</a><a href="https://www-infinity4.github.io/Cinemax/">Cinemax</a><a href="https://www-infinity4.github.io/Starz/">Starz</a><a href="https://www-infinity4.github.io/Encore/">Encore</a><a href="https://www-infinity4.github.io/Cartoon-Network/">Cartoon Network</a><a aria-current="page" href="https://www-infinity4.github.io/Trump-TV/">Trump TV</a></nav></section>
   <footer><span>TRUMP TV NETWORK</span><p>Independent archival channel. Source labels identify publishers; inclusion does not imply affiliation or endorsement.</p></footer>
-
-  <script src="data/catalog.js"></script>
-  <script src="engine.js"></script>
-  <script src="https://www-infinity4.github.io/TNT/channels.js?v=20260912c"></script>
-  <script src="app.js"></script>
-  <script src="https://www-infinity4.github.io/TNT/pip.js?v=20260912c"></script>
+  <script src="data/catalog.js?v=20260913c"></script><script src="engine.js?v=20260913c"></script><script src="https://www-infinity4.github.io/TNT/channels.js?v=20260913c"></script><script src="app.js?v=20260913c"></script><script src="https://www-infinity4.github.io/TNT/pip.js?v=20260912c"></script>
 </body>
 </html>
